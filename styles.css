@@ -16,3 +16,7 @@ input, textarea, select{
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
+nput[type="radio"] {
+    width: auto;
+}
