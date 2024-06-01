@@ -11,3 +11,11 @@ body{
 h1 {
     color: #333;
 }
+
+ul {
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
