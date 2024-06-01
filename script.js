@@ -10,3 +10,5 @@ document.getElementById('surveyForm').addEventListener('submit', function(event)
 
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `<h3>Survey Results</h3>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
