@@ -14,4 +14,6 @@ document.getElementById('surveyForm').addEventListener('submit', function(event)
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Date of Birth:</strong> ${dob}</p>
                            <p><strong>Gender:</strong> ${gender}</p>
-                           
+                           <p><strong>Country:</strong> ${country}</p>
+                           <p><strong>Feedback:</strong> ${feedback}</p>`;
+
