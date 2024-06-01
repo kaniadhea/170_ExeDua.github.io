@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <script>
+        function displayFormData() {
+            // Retrieve form values
+            var name = document.getElementById('name').value;
+            var birthdate = document.getElementById('birthdate').value;
+            var birthmonth = document.getElementById('birthmonth').value;
+            var birthyear = document.getElementById('birthyear').value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var comments = document.getElementById('comments').value;
+
+            // Display form values
+            document.getElementById('formData').innerHTML = 
+                `<h3>Form Data:</h3>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Birthdate:</strong> ${birthdate}/${birthmonth}/${birthyear}</p>
+                <p><strong>Gender:</strong> ${gender}</p>
+                <p><strong>Comments:</strong> ${comments}</p>`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Survey Form</h1>
+    <form onsubmit="event.preventDefault(); displayFormData();">
+        <!-- Textfield -->
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Date Dropdown -->
+        <label for="birthdate">Birthdate:</label><br>
+        <select id="birthdate" name="birthdate" required>
+            <option value="">Day</option>
+            <!-- Options for days -->
+            <script>
+                for (let i = 1; i <= 31; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                }
+            </script>
+        </select>
+        <select id="birthmonth" name="birthmonth" required>
+            <option value="">Month</option>
+            <!-- Options for months -->
+            <script>
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                months.forEach((month, index) => {
+                    document.write(`<option value="${index + 1}">${month}</option>`);
+                });
+            </script>
+        </select>
+        <select id="birthyear" name="birthyear" required>
+            <option value="">Year</option>
+            <!-- Options for years -->
+            <script>
+                const currentYear = new Date().getFullYear();
+                for (let i = currentYear; i >= 1900; i--) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                }
+            </script>
+        </select><br><br>
+
+        <!-- Radiobutton -->
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label><br><br>
+
+        <!-- Textarea -->
+        <label for="comments">Comments:</label><br>
+        <textarea id="comments" name="comments" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="formData"></div>
+</body>
+</html>
